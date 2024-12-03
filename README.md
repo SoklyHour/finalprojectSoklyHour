@@ -115,4 +115,4 @@ Inspiration, code snippets, etc.
 * [django](https://docs.djangoproject.com/en/5.1/intro/)
 * [bootstrap](https://getbootstrap.com/)
 * [w3schools]()
-* [ChatGPT]()
+* [ChatGPT](https://chatgpt.com/share/674e5c16-4e58-8005-9778-23fc9f076f07)
