@@ -116,4 +116,4 @@ Inspiration, code snippets, etc.
 * [bootstrap](https://getbootstrap.com/)
 * [w3schools](https://www.w3schools.com/django/)
 * [ChatGPT](https://chatgpt.com/share/674e5c16-4e58-8005-9778-23fc9f076f07)
-* [Mozilla](https://developer.mozilla.org/en-US/docs/Web/CSS)
+* [Mozilla CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
