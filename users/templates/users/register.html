@@ -1,0 +1,27 @@
+{% extends 'base.html' %}  <!-- Inherit from the base.html template to maintain consistent layout and structure across pages -->
+{% load crispy_forms_tags %}  <!-- Load Django's crispy_forms_tags to enable crispy form styling (for more readable forms) -->
+
+{% block content %}  <!-- Start of the content block that will be rendered in the base template -->
+
+<div class="container-fluid d-flex justify-content-center align-items-center min-vh-100"> <!-- Center the content vertically and horizontally -->
+    <div class="card shadow-lg p-5" style="max-width: 600px; width: 100%; border-radius: 15px;"> <!-- Card styling for the sign-up form -->
+        <h2 class="text-center text-primary mb-4 font-weight-bold" style="font-size: 2.5rem;">Sign Up</h2> <!-- Title for the sign-up page -->
+        <form method="POST"> <!-- Start of the form, method POST sends form data securely -->
+            {% csrf_token %} <!-- CSRF token to prevent cross-site request forgery attacks -->
+            <fieldset class="form-group"> <!-- Group the form elements under a legend -->
+                <legend class="sr-only">Sign Up</legend> <!-- Provide a legend for accessibility (visually hidden) -->
+                {{ form|crispy }} <!-- Render the form fields with crispy form styling -->
+            </fieldset>
+            <div class="form-group py-3"> <!-- Wrapper for the submit button with some padding -->
+                <button class="btn btn-primary btn-block py-3" style="font-size: 1.2rem;" type="submit">Sign Up</button> <!-- Submit button for the form with styling -->
+            </div>
+        </form>
+        <div class="text-center mt-4"> <!-- Center the content of the next section -->
+            <p class="mb-0" style="font-size: 1rem;">Already have an account?</p> <!-- Text asking if the user already has an account -->
+            <a href="{% url 'user-login' %}" class="text-primary" style="font-size: 1.1rem; font-weight: bold;">Log in here</a> <!-- Link to the login page -->
+        </div>
+    </div>
+</div>
+
+{% endblock content %}  <!-- End of the content block -->
+

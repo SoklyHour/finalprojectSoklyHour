@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+
+{% block title %}About Us | WeatherApp{% endblock title %}
+
+{% block content %}
+<div class="container my-5">
+    <!-- Introduction Section -->
+    <section class="mb-5">
+        <h1 class="fw-bold text-primary text-center mb-4">About WeatherApp</h1>
+        <p class="lead text-muted text-center mb-5">
+            Welcome to WeatherApp, your trusted companion for accurate, real-time weather updates. Whether you're planning a 
+            vacation, managing your daily schedule, or preparing for the unexpected, WeatherApp ensures you stay ahead 
+            of the weather.
+        </p>
+        <div class="card shadow-sm border-0 p-4">
+            <div class="card-body">
+                <!-- Section on who we are -->
+                <h2 class="text-secondary fw-bold mb-3">Who We Are</h2>
+                <p>
+                    WeatherApp was created to revolutionize how people interact with weather data. Our platform leverages 
+                    cutting-edge technology, including the OpenWeatherMap API, to provide reliable and timely forecasts. 
+                    Whether you're looking for detailed temperature stats or an overview of the week's weather trends, 
+                    we've got you covered.
+                </p>
+                <p class="text-muted fst-italic">
+                    "Created by Sokly Hour, WeatherApp embodies a commitment to innovation, usability, and precision. Our goal 
+                    is to make weather forecasting simple and accessible for everyone."
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="text-center mb-5">
+        <h2 class="text-primary fw-bold mb-4">Why Choose WeatherApp?</h2>
+        <div class="row">
+            <!-- Real-time Precision Feature -->
+            <div class="col-md-4 mb-4">
+                <div class="feature-box border p-4 rounded shadow-sm">
+                    <div class="display-6 text-warning">🌟</div>
+                    <h5 class="mt-3">Real-time Precision</h5>
+                    <p class="text-muted">
+                        Get instant updates for your location, ensuring you're always informed.
+                    </p>
+                </div>
+            </div>
+            <!-- Global Reach Feature -->
+            <div class="col-md-4 mb-4">
+                <div class="feature-box border p-4 rounded shadow-sm">
+                    <div class="display-6 text-success">🌍</div>
+                    <h5 class="mt-3">Global Reach</h5>
+                    <p class="text-muted">
+                        Access detailed forecasts for cities and regions across the world.
+                    </p>
+                </div>
+            </div>
+            <!-- Lightning Fast Feature -->
+            <div class="col-md-4 mb-4">
+                <div class="feature-box border p-4 rounded shadow-sm">
+                    <div class="display-6 text-primary">⚡</div>
+                    <h5 class="mt-3">Lightning Fast</h5>
+                    <p class="text-muted">
+                        Powered by advanced APIs, WeatherApp delivers updates in an instant.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision Section -->
+    <section class="vision-section text-center py-5 rounded shadow-sm bg-light border border-primary">
+        <h2 class="text-primary fw-bold mb-3">Our Vision</h2>
+        <p class="lead text-muted mb-4">
+            At WeatherApp, our vision is to become the most trusted and accessible weather platform worldwide. We aim to 
+            empower individuals and organizations with the tools to make informed decisions, rain or shine.
+        </p>
+        <p class="text-muted">
+            By combining advanced technology with an intuitive interface, WeatherApp aspires to simplify complex weather data, 
+            enabling everyone to navigate their days with confidence.
+        </p>
+        <!-- Contact Us Button -->
+        <button class="btn btn-outline-primary btn-lg mt-3" data-bs-toggle="modal" data-bs-target="#contactModal">
+            Get in Touch
+        </button>
+    </section>
+</div>
+
+<!-- Bootstrap Modal for Contact Us -->
+<div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-primary" id="contactModalLabel">Contact Us</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p class="text-muted">
+                    We’d love to hear from you! Fill out the form on our <a href="{% url 'contact' %}" class="text-primary">Contact Page</a>, 
+                    or reach out directly via email at <strong>s_hour@mail.fhsu.edu</strong>.
+                </p>
+                <p>
+                    Follow us on our social media channels for the latest updates:
+                    <ul class="list-unstyled">
+                        <li><a href="https://www.facebook.com/WeatherApp" class="text-primary" target="_blank">Facebook</a></li>
+                        <li><a href="https://twitter.com/WeatherApp" class="text-primary" target="_blank">Twitter</a></li>
+                        <li><a href="https://www.instagram.com/WeatherApp" class="text-primary" target="_blank">Instagram</a></li>
+                    </ul>
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

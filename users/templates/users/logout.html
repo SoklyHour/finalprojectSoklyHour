@@ -1,0 +1,23 @@
+{% extends 'base.html' %}  <!-- Inherit from the base.html template to use the common layout structure -->
+
+{% block content %}  <!-- Start of the content block to be rendered in the base template -->
+
+<!-- Main container with flexbox for centering content both vertically and horizontally -->
+<div class="container d-flex justify-content-center align-items-center min-vh-100">
+    <div class="text-center"> <!-- Center the text inside this div -->
+        
+        <!-- Display a large message indicating the user has been logged out -->
+        <h2 class="display-4 text-danger">You have been logged out!</h2>
+        
+        <!-- A secondary message encouraging the user to return -->
+        <p class="lead text-muted">We hope to see you back soon!</p>
+        
+        <!-- Border-top class to add a line above this section and provide spacing -->
+        <div class="border-top pt-3">
+            <!-- Provide a link to log back in with a button style -->
+            <a href="{% url 'user-login' %}" class="btn btn-primary">Log back in here</a>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}  <!-- End of the content block -->

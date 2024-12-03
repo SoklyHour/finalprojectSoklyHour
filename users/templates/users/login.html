@@ -1,0 +1,36 @@
+{% extends 'base.html' %}  <!-- Inherit from the base.html template to maintain the common layout structure -->
+
+{% load crispy_forms_tags %}  <!-- Load the crispy_forms_tags to apply crispy form styling to your form -->
+
+{% block content %}  <!-- Start of the content block to be rendered in the base template -->
+
+<!-- Main container with flexbox to center content vertically and horizontally within the viewport -->
+<div class="container-fluid d-flex justify-content-center align-items-center min-vh-100">
+    <div class="card shadow-lg p-5" style="max-width: 600px; width: 100%; border-radius: 15px;">
+        
+        <!-- Heading with custom styles for the 'Log In' text -->
+        <h2 class="text-center text-primary mb-4 font-weight-bold" style="font-size: 2.5rem;">Log In</h2>
+        
+        <!-- Form to handle the login functionality -->
+        <form method="POST">
+            {% csrf_token %}  <!-- CSRF token to protect against cross-site request forgery -->
+            <fieldset class="form-group">
+                <legend class="sr-only">Log in!</legend>  <!-- Visually hidden label for accessibility purposes -->
+                {{ form|crispy }}  <!-- Apply the crispy form styling to the form fields -->
+            </fieldset>
+            
+            <!-- Submit button styled as a block-level button -->
+            <div class="form-group py-3">
+                <button class="btn btn-primary btn-block py-3" style="font-size: 1.2rem;" type="submit">Login</button>
+            </div>
+        </form>
+        
+        <!-- A section below the form for users who do not have an account, with a link to the registration page -->
+        <div class="text-center mt-4">
+            <p class="mb-0" style="font-size: 1rem;">Don't have an account?</p>
+            <a href="{% url 'user-register' %}" class="text-primary" style="font-size: 1.1rem; font-weight: bold;">Register here</a>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}  <!-- End of the content block -->

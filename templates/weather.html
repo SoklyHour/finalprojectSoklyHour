@@ -1,0 +1,64 @@
+{% extends "base.html" %}  <!-- Inherit from the base.html template to maintain common layout structure -->
+{% load static %}  <!-- Load static files (CSS, JS, etc.) so they can be referenced in the template -->
+
+{% block title %}Home - Weather App{% endblock title %}  <!-- Set the title of the webpage to "Home - Weather App" -->
+
+{% block content %}  <!-- Start of the content block to be rendered in the base template -->
+
+<!-- Section for the weather search and information display -->
+<section class="weather-section">
+    <div class="container">
+        
+        <!-- Section title for the weather search -->
+        <h2 class="section-title">Find the Weather Condition Wherever You Want!</h2>
+
+        <!-- Weather Search Form -->
+        <div class="weather-form">
+            <form method="post">  <!-- Form method is POST to submit the search location -->
+                {% csrf_token %}  <!-- CSRF token to protect against cross-site request forgery attacks -->
+                
+                <!-- Input field for location with a label -->
+                <div class="form-group">
+                    <label for="location" class="form-label">Enter the Location to Search Weather Condition:</label>
+                    <input type="text" id="location" name="location" class="form-input" placeholder="e.g., London, Paris, New York">
+                </div>
+                
+                <!-- Submit button for the form -->
+                <button type="submit" class="btn btn-primary">Search</button>
+            </form>
+        </div>
+
+        <!-- Weather Information Display -->
+        <div class="weather-info">
+            <h2 class="weather-info-title">Weather Information for the Searched Location:</h2>
+            
+            <!-- List of weather data for each location -->
+            <ul class="weather-list">
+                {% for weather in weather_data %}
+                <li class="weather-item">
+                    
+                    <!-- Display the weather location -->
+                    <h3 class="weather-location">{{ weather.location }}</h3>
+                    
+                    <!-- Display weather details (temperature, humidity, description) -->
+                    <p class="weather-details">
+                        <strong>🌡️ Temperature:</strong> {{ weather.temperature }}°C |
+                        <strong>⛅ Humidity:</strong> {{ weather.humidity }}% |
+                        <strong>🌞 Description:</strong> {{ weather.description }}
+                    </p>
+                    
+                    <!-- Delete Button to remove the weather information for the location -->
+                    <form action="{% url 'delete-weather' weather.id %}" method="POST" style="display:inline;">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                </li>
+                {% empty %}
+                <li class="weather-item">No weather data available, try searching a location.</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</section>
+
+{% endblock content %}  <!-- End of the content block -->

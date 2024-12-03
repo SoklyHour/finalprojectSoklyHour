@@ -1,0 +1,86 @@
+{% extends 'base.html' %}  <!-- Inherit from the base template to maintain consistent layout and structure -->
+{% block title %}Contact Us | WeatherApp{% endblock title %}  <!-- Set the page title to "Contact Us | WeatherApp" -->
+
+{% block content %}
+<div class="container my-5"> <!-- Main container with a margin for spacing -->
+
+    <!-- Contact Us Title Section -->
+    <h1 class="text-primary fw-bold text-center mb-4">Contact Us</h1> <!-- Centered title with blue color and bold text -->
+
+    <!-- Contact Form Section -->
+    <section class="mb-5">
+        <h2 class="text-secondary fw-bold mb-3">We'd Love to Hear From You!</h2> <!-- Subtitle encouraging users to contact -->
+
+        <!-- Contact Form: Make sure the form action uses the correct URL pattern for form submission -->
+        <form method="POST" action="{% url 'submit_contact' %}">  <!-- POST method for form submission -->
+            {% csrf_token %}  <!-- CSRF token for security -->
+
+            <!-- Name input field -->
+            <div class="mb-3">
+                <label for="name" class="form-label">Your Name</label>
+                <input type="text" class="form-control" id="name" name="name" required>
+            </div>
+
+            <!-- Email input field -->
+            <div class="mb-3">
+                <label for="email" class="form-label">Your Email</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+
+            <!-- Message textarea -->
+            <div class="mb-3">
+                <label for="message" class="form-label">Your Message</label>
+                <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
+            </div>
+
+            <!-- Submit button -->
+            <button type="submit" class="btn btn-primary">Send Message</button>
+        </form>
+    </section>
+
+    <!-- Contact Information Section -->
+    <section>
+        <h2 class="text-secondary fw-bold mb-3">Other Ways to Reach Us</h2>  <!-- Subtitle for alternative contact methods -->
+        <p class="lead text-muted mb-4">If you prefer to reach out directly, you can contact us through the following methods:</p>
+
+        <!-- List of alternative contact methods -->
+        <ul class="list-unstyled">
+            <li><strong>Email:</strong> <a href="mailto:s_hour@mail.fhsu.edu" class="text-primary">s_hour@mail.fhsu.edu</a></li>
+            <li><strong>Phone:</strong> +1 804-263-0972</li>
+            <li><strong>Social Media:</strong>
+                <ul class="list-inline">
+                    <li class="list-inline-item"><a href="https://www.facebook.com/WeatherApp" class="text-primary" target="_blank">Facebook</a></li>
+                    <li class="list-inline-item"><a href="https://twitter.com/WeatherApp" class="text-primary" target="_blank">Twitter</a></li>
+                    <li class="list-inline-item"><a href="https://www.instagram.com/WeatherApp" class="text-primary" target="_blank">Instagram</a></li>
+                </ul>
+            </li>
+        </ul>
+    </section>
+
+    <!-- Location Section with Google Map Embed -->
+    <section class="mt-5">
+        <h2 class="text-secondary fw-bold mb-3">Our Location</h2>
+
+        <!-- Google Maps Embed to show location of Hammond Hall -->
+        <div class="embed-responsive embed-responsive-16by9">
+            <iframe class="embed-responsive-item" 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3106.286768233761!2d-99.34726222441931!3d38.87168034822176!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87a179d2d4bf687d%3A0x91324f0f7b67090e!2sHammond%20Hall!5e0!3m2!1sen!2sus!4v1733176397409!5m2!1sen!2sus" 
+                width="100%" height="500" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+
+        <!-- Address Section for Hammond Hall -->
+        <div class="mt-4 p-4 border rounded shadow-sm bg-light text-center">
+            <h3 class="text-primary fw-bold">Location:</h3>
+            <p class="lead mb-2">Visit us at:</p>
+            <address class="text-muted">
+                <strong>Hammond Hall</strong><br>
+                Dwight Dr, Hays, KS 67601<br>
+                <a href="https://www.google.com/maps?q=Hammond+Hall,+Dwight+Dr,+Hays,+KS+67601" target="_blank" class="text-primary">
+                    Open in Google Maps
+                </a>
+            </address>
+        </div>
+    </section>
+    
+</div>
+{% endblock content %}

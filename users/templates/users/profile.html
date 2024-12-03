@@ -1,0 +1,15 @@
+{% extends 'base.html' %}  <!-- Inherit from the base.html template to maintain consistent layout and structure across pages -->
+
+{% block content %}  <!-- Start of the content block that will be rendered in the base template -->
+
+<!-- Main container with flexbox for centering content both vertically and horizontally -->
+<div class="container d-flex justify-content-center align-items-center min-vh-100">
+    <div class="text-center"> <!-- Center the text inside the div -->
+        <!-- Display the username of the currently authenticated user in large, bold text -->
+        <h1 class="display-1 text-primary font-weight-bold" style="font-size: 5rem;">{{ user.username }}</h1>
+        <!-- Display a welcome message under the username with a slightly smaller font size -->
+        <p class="lead text-muted" style="font-size: 2rem;">Welcome to your profile!</p>
+    </div>
+</div>
+
+{% endblock content %}  <!-- End of the content block -->
